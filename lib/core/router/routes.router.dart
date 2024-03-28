@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:personal_finances/core/router/enum/name_page.enum.dart';
 
-import '../../page/home.page.dart';
+import '../../pages/home.page.dart';
+import 'enum/name_page.enum.dart';
 
 class AppRoutes {
   static final routes = [

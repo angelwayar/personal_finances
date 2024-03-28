@@ -14,6 +14,7 @@ El MVP de debe de contar con 3 cosas:
 Las siguientes dependencias fueron agregadas al ``pubspec.yaml``
 
 ```yaml
+    flutter_card_swiper: 7.0.0
     bloc: 8.1.4
     flutter_bloc: 8.1.5
     equatable: 2.0.5
