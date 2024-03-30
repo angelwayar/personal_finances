@@ -20,7 +20,9 @@ class AccountSection extends StatelessWidget {
           horizontalOffsetPercentage,
           verticalOffsetPercentage,
         ) {
-          return const AccountCardWidget();
+          return const AccountCardWidget(
+            img: 'assets/background/card1.jpg',
+          );
         },
         onSwipe: (
           int previousIndex,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/widgets.dart';
 import 'categories_section.dart';
 import 'form/form.dart';
+import 'style_card.page.dart';
 
 class RegisterAccountPage extends StatelessWidget {
   const RegisterAccountPage({super.key});
@@ -21,10 +22,20 @@ class RegisterAccountPage extends StatelessWidget {
                 child: ListView(
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    Container(
-                      height: 190.0,
-                      margin: const EdgeInsets.only(bottom: 20.0),
-                      child: const AccountCardWidget(),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const StyleCard(),
+                        ),
+                      ),
+                      child: Container(
+                        height: 190.0,
+                        margin: const EdgeInsets.only(bottom: 20.0),
+                        child: const AccountCardWidget(
+                          img: 'assets/background/card1.jpg',
+                        ),
+                      ),
                     ),
                     const AccountForm(),
                     const SizedBox(height: 28.0),

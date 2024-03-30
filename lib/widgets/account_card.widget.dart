@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AccountCardWidget extends StatelessWidget {
-  const AccountCardWidget({super.key});
+  const AccountCardWidget({
+    super.key,
+    this.img,
+  });
+
+  final String? img;
 
   @override
   Widget build(BuildContext context) {
@@ -10,10 +15,12 @@ class AccountCardWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xff83d3ff),
         borderRadius: BorderRadius.circular(24.0),
-        image: const DecorationImage(
-          image: AssetImage('assets/background/card1bg.jpg'),
-          fit: BoxFit.cover,
-        ),
+        image: img != null
+            ? DecorationImage(
+                image: AssetImage(img!),
+                fit: BoxFit.cover,
+              )
+            : null,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
