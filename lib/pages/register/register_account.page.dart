@@ -14,6 +14,8 @@ class RegisterAccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final accountController = TextEditingController();
     final totalBalanceController = TextEditingController();
+    final formKey = GlobalKey<FormState>();
+
     return BlocProvider<CardCubit>(
       create: (context) => CardCubit(),
       child: Scaffold(
@@ -26,7 +28,6 @@ class RegisterAccountPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView(
-                    // physics: const NeverScrollableScrollPhysics(),
                     children: [
                       SizedBox(
                         height: 260.0,
@@ -42,6 +43,7 @@ class RegisterAccountPage extends StatelessWidget {
                               ) {
                                 if (index == 0) {
                                   return AccountCardWidget(
+                                    callback: (valye) {},
                                     account: state.account,
                                     totalBalance: state.totalBalance,
                                   );
@@ -73,6 +75,7 @@ class RegisterAccountPage extends StatelessWidget {
                         ),
                       ),
                       AccountForm(
+                        formKey: formKey,
                         accountController: accountController,
                         totalBalanceController: totalBalanceController,
                       ),
@@ -84,7 +87,9 @@ class RegisterAccountPage extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {}
+                  },
                   child: const Text('Save new Account'),
                 ),
               ],

@@ -18,5 +18,19 @@ class InputThemeApp {
       ),
       borderRadius: BorderRadius.circular(10.0),
     ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: const BorderSide(
+        width: 1.0,
+        color: Color(0XFFF44336),
+      ),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: const BorderSide(
+        width: 1.0,
+        color: Color(0XFFF44336),
+      ),
+    ),
   );
 }

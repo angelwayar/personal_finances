@@ -5,10 +5,12 @@ import 'package:personal_finances/pages/register/card/card_cubit.dart';
 class AccountForm extends StatefulWidget {
   const AccountForm({
     super.key,
+    required this.formKey,
     required this.accountController,
     required this.totalBalanceController,
   });
 
+  final GlobalKey<FormState> formKey;
   final TextEditingController accountController;
   final TextEditingController totalBalanceController;
 
@@ -37,21 +39,28 @@ class _AccountFormState extends State<AccountForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: widget.formKey,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           TextFormField(
             controller: widget.accountController,
             decoration: const InputDecoration(
-              labelText: 'Account',
+              labelText: 'Cuenta',
             ),
           ),
           const SizedBox(height: 12.0),
           TextFormField(
             controller: widget.totalBalanceController,
             decoration: const InputDecoration(
-              labelText: 'Total balance',
+              labelText: 'Balance total',
             ),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Campo requerido.';
+              }
+              return null;
+            },
           ),
         ],
       ),
