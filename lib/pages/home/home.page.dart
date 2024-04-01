@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:personal_finances/core/router/enum/name_page.enum.dart';
+import 'package:personal_finances/pages/financialRegister/calculator.page.dart';
 
 import '../../widgets/widgets.dart';
 import 'account_section.dart';
@@ -47,7 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   IconButtonWidget(
                     backgroundColor: Colors.green[100]!,
                     onTap: () {
-                      // RegisterAccountPage
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const CalculatorPage(),
+                        ),
+                      );
                     },
                     child: Icon(
                       Icons.plus_one,
