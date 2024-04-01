@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personal_finances/pages/register/card/card_cubit.dart';
 
@@ -48,6 +49,10 @@ class _AccountFormState extends State<AccountForm> {
             decoration: const InputDecoration(
               labelText: 'Cuenta',
             ),
+            keyboardType: TextInputType.number,
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'^\d{1,4}')),
+            ],
           ),
           const SizedBox(height: 12.0),
           TextFormField(
@@ -55,6 +60,12 @@ class _AccountFormState extends State<AccountForm> {
             decoration: const InputDecoration(
               labelText: 'Balance total',
             ),
+            keyboardType: TextInputType.number,
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(
+                RegExp(r'^\d+[\,.]?\d{0,2}'),
+              ),
+            ],
             validator: (String? value) {
               if (value == null || value.isEmpty) {
                 return 'Campo requerido.';

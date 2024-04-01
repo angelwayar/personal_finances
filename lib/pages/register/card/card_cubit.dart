@@ -10,7 +10,7 @@ class CardCubit extends Cubit<CardState> {
     emit(
       CardSuccess(
         account: account,
-        totalBalance: totalBalance,
+        totalBalance: totalBalance!.isEmpty ? '0.00' : totalBalance,
       ),
     );
   }
