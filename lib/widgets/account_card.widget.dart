@@ -4,9 +4,13 @@ class AccountCardWidget extends StatelessWidget {
   const AccountCardWidget({
     super.key,
     this.img,
+    this.account,
+    this.totalBalance,
   });
 
   final String? img;
+  final String? totalBalance;
+  final String? account;
 
   @override
   Widget build(BuildContext context) {
@@ -37,19 +41,19 @@ class AccountCardWidget extends StatelessWidget {
               fontSize: 16.0,
             ),
           ),
-          const Row(
+          Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                '\$848,900.30',
-                style: TextStyle(
+                '\$${totalBalance ?? ''}',
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Spacer(),
-              Text(
+              const Spacer(),
+              const Text(
                 '*****',
                 style: TextStyle(
                   color: Colors.white,
@@ -57,8 +61,8 @@ class AccountCardWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                '3486',
-                style: TextStyle(
+                '${account ?? ''} ',
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w400,
