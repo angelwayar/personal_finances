@@ -10,7 +10,11 @@ class CategoriesSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        // color: Color.fromARGB(255, 213, 236, 255),
+        // borderRadius: BorderRadius.only(
+        //   bottomLeft: Radius.circular(10.0),
+        //   bottomRight: Radius.circular(10.0),
+        // ),
         borderRadius: BorderRadius.circular(10.0),
         border: Border.all(
           color: Colors.deepPurple,
@@ -21,7 +25,28 @@ class CategoriesSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: IconButtonWidget(
+                  title: 'Ocio',
+                  textColor: Colors.white,
+                  height: 40.0,
+                  width: 40.0,
+                  backgroundColor: Colors.red[200]!,
+                  child: const Center(
+                    child: Text(
+                      '🍸️',
+                      style: TextStyle(fontSize: 24.0),
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+              ),
               IconButtonWidget(
                 title: 'Ocio',
                 height: 40.0,
@@ -35,39 +60,129 @@ class CategoriesSection extends StatelessWidget {
                 ),
                 onTap: () {},
               ),
-              const Spacer(),
-              Text(
-                'Ver todo',
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.blue[400]!,
-                  fontWeight: FontWeight.w400,
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12.0),
-          const Text('Seleccionados'),
-          Row(
-            children: [
-              IconButtonWidget(
-                title: 'Ocio',
-                height: 40.0,
-                width: 40.0,
-                backgroundColor: Colors.red,
-                child: Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.red[200]!,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Text(
+                child: IconButtonWidget(
+                  title: 'Ocio',
+                  textColor: Colors.white,
+                  height: 40.0,
+                  width: 40.0,
+                  backgroundColor: Colors.red[200]!,
+                  child: const Center(
+                    child: Text(
                       '🍸️',
                       style: TextStyle(fontSize: 24.0),
                     ),
                   ),
+                  onTap: () {},
+                ),
+              ),
+              IconButtonWidget(
+                title: 'Ocio',
+                height: 40.0,
+                width: 40.0,
+                backgroundColor: Colors.red[200]!,
+                child: const Center(
+                  child: Text(
+                    '🍸️',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
                 ),
                 onTap: () {},
+              ),
+            ],
+          ),
+          const SizedBox(height: 12.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: IconButtonWidget(
+                  title: 'Ocio',
+                  textColor: Colors.white,
+                  height: 40.0,
+                  width: 40.0,
+                  backgroundColor: Colors.red[200]!,
+                  child: const Center(
+                    child: Text(
+                      '🍸️',
+                      style: TextStyle(fontSize: 24.0),
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+              ),
+              IconButtonWidget(
+                title: 'Ocio',
+                height: 40.0,
+                width: 40.0,
+                backgroundColor: Colors.red[200]!,
+                child: const Center(
+                  child: Text(
+                    '🍸️',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                ),
+                onTap: () {},
+              ),
+              IconButtonWidget(
+                title: 'Ocio',
+                height: 40.0,
+                width: 40.0,
+                backgroundColor: Colors.red[200]!,
+                child: const Center(
+                  child: Text(
+                    '🍸️',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                ),
+                onTap: () {},
+              ),
+              IconButtonWidget(
+                title: 'Ocio',
+                height: 40.0,
+                width: 40.0,
+                backgroundColor: Colors.red[200]!,
+                child: const Center(
+                  child: Text(
+                    '🍸️',
+                    style: TextStyle(fontSize: 24.0),
+                  ),
+                ),
+                onTap: () {},
+              ),
+            ],
+          ),
+          const SizedBox(height: 12.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: IconButtonWidget(
+                  title: 'Ocio',
+                  textColor: Colors.white,
+                  height: 40.0,
+                  width: 40.0,
+                  backgroundColor: Colors.red[200]!,
+                  child: const Center(
+                    child: Text(
+                      '🍸️',
+                      style: TextStyle(fontSize: 24.0),
+                    ),
+                  ),
+                  onTap: () {},
+                ),
               ),
               IconButtonWidget(
                 title: 'Ocio',

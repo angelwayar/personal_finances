@@ -64,7 +64,7 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 20.0),
         decoration: BoxDecoration(
-          color: const Color(0xff83d3ff),
+          color: const Color(0xFF345BAF),
           borderRadius: BorderRadius.circular(24.0),
           image: imageSelected(),
         ),
@@ -75,6 +75,16 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
               'assets/icons/visa.png',
               height: 22.0,
             ),
+            if ((widget.img == null) && (image == null))
+              const Center(
+                child: Text(
+                  'Agrega tu imagen',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.0,
+                  ),
+                ),
+              ),
             const Spacer(),
             const Text(
               'Total balance',

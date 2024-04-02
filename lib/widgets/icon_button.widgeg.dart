@@ -5,8 +5,9 @@ class IconButtonWidget extends StatelessWidget {
     super.key,
     this.onTap,
     this.title,
-    this.height = 80.0,
+    this.textColor,
     this.width = 80.0,
+    this.height = 80.0,
     required this.child,
     required this.backgroundColor,
   });
@@ -14,6 +15,7 @@ class IconButtonWidget extends StatelessWidget {
   final double? height;
   final double? width;
   final void Function()? onTap;
+  final Color? textColor;
   final Color backgroundColor;
   final Widget child;
   final String? title;
@@ -38,7 +40,10 @@ class IconButtonWidget extends StatelessWidget {
             Text(
               title!,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 12.0),
+              style: TextStyle(
+                fontSize: 12.0,
+                color: textColor,
+              ),
             ),
         ],
       ),
