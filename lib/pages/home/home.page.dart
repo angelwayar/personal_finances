@@ -19,9 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: lightColorScheme.onSecondaryContainer,
-      ),
+      appBar: AppBar(backgroundColor: lightColorScheme.onSecondaryContainer),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,34 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       Icons.plus_one,
                       color: Colors.green[400],
                     ),
-                  ),
-                ),
-                const SizedBox(width: 12.0),
-                Container(
-                  height: 80.0,
-                  width: 80.0,
-                  decoration: BoxDecoration(
-                    color: lightColorScheme.inversePrimary.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.plus_one,
-                        color: Color.fromARGB(255, 187, 102, 102),
-                      ),
-                      const SizedBox(height: 8.0),
-                      Text(
-                        'Registrar\nnueva Cuenta',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          color: lightColorScheme.primary,
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

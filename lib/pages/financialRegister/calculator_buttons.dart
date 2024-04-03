@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:personal_finances/core/theme/color_schemes.dart';
 
 import '../../widgets/widgets.dart';
 import 'cubits/calculator/calculator_cubit.dart';
@@ -21,7 +22,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '1');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '1',
@@ -37,7 +38,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '2');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '2',
@@ -53,7 +54,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '3');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '3',
@@ -69,7 +70,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '+');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '+',
@@ -85,7 +86,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '4');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '4',
@@ -101,7 +102,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '5');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '5',
@@ -117,7 +118,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '6');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '6',
@@ -133,7 +134,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '-');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '-',
@@ -149,7 +150,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '7');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '7',
@@ -165,7 +166,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '8');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '8',
@@ -181,7 +182,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '9');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '9',
@@ -197,7 +198,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '×');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '×',
@@ -213,7 +214,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '·');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '·',
@@ -229,7 +230,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '0');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '0',
@@ -245,7 +246,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '=');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '=',
@@ -261,7 +262,7 @@ class CalculatorButtons extends StatelessWidget {
           onTap: () {
             context.read<CalculatorCubit>().calculatorButtonPressed(value: '÷');
           },
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: lightColorScheme.primary,
           child: const Center(
             child: Text(
               '÷',
