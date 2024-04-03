@@ -4,6 +4,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import '../../core/theme/color_schemes.dart';
 import '../../widgets/widgets.dart';
 
+//TODO: Se debe de parametrizar un initial card
 class AccountSection extends StatelessWidget {
   const AccountSection({
     super.key,

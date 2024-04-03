@@ -2,6 +2,7 @@ enum NamePage {
   splash,
   login,
   home,
+  journal,
   accountRegister,
   errorPopup;
 
@@ -13,8 +14,10 @@ enum NamePage {
         return '/login';
       case NamePage.home:
         return '/home';
+      case NamePage.journal:
+        return 'journal';
       case NamePage.accountRegister:
-        return '/account-register';
+        return 'account-register';
       case NamePage.errorPopup:
         return '/error-popup';
     }

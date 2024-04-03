@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/color_schemes.dart';
 import '../../widgets/widgets.dart';
 
 class CategoriesSection extends StatelessWidget {
@@ -17,7 +18,7 @@ class CategoriesSection extends StatelessWidget {
         // ),
         borderRadius: BorderRadius.circular(10.0),
         border: Border.all(
-          color: Colors.deepPurple,
+          color: lightColorScheme.secondary,
           width: 2.0,
         ),
       ),

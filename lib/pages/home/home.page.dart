@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:personal_finances/core/router/enum/name_page.enum.dart';
-import 'package:personal_finances/pages/financialRegister/calculator.page.dart';
 
 import '../../core/theme/color_schemes.dart';
 import '../../widgets/widgets.dart';
@@ -42,7 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     textColor: lightColorScheme.primary,
                     backgroundColor: Colors.green[100]!,
                     onTap: () {
-                      context.push(NamePage.accountRegister.path());
+                      context.push(
+                        '${NamePage.home.path()}/${NamePage.accountRegister.path()}',
+                      );
                     },
                     child: const Icon(
                       Iconsax.add5,
@@ -61,11 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     title: 'Registrar\nnueva Cuenta',
                     backgroundColor: Colors.green[100]!,
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const CalculatorPage(),
-                        ),
+                      context.push(
+                        '${NamePage.home.path()}/${NamePage.journal.path()}',
                       );
                     },
                     child: Icon(
