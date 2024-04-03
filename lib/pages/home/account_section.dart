@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 
+import '../../core/theme/color_schemes.dart';
 import '../../widgets/widgets.dart';
 
 class AccountSection extends StatelessWidget {
@@ -10,8 +11,16 @@ class AccountSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 240.0,
+    return Container(
+      height: 260.0,
+      margin: const EdgeInsets.only(bottom: 20.0),
+      decoration: BoxDecoration(
+        color: lightColorScheme.onSecondaryContainer,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(24.0),
+          bottomRight: Radius.circular(24.0),
+        ),
+      ),
       child: CardSwiper(
         cardsCount: 4,
         cardBuilder: (
@@ -21,7 +30,7 @@ class AccountSection extends StatelessWidget {
           verticalOffsetPercentage,
         ) {
           return const AccountCardWidget(
-            img: 'assets/background/card1.jpg',
+            img: 'assets/background/card3.jpg',
           );
         },
         onSwipe: (

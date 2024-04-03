@@ -25,6 +25,7 @@ dependencies:
   hydrated_bloc: 9.1.5
   fl_chart: 0.66.2
   image_picker: 1.0.7
+  iconsax: 0.0.8
 
 dev_dependencies:
   flutter_test:
