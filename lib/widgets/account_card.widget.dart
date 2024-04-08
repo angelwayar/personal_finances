@@ -35,7 +35,7 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
     final selectedImage = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
       image = selectedImage;
-      widget.callback!(image!);
+      widget.callback!(selectedImage!);
     });
   }
 

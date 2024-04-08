@@ -1,17 +1,35 @@
-class Account {
-  double total;
-  String divisa;
-  int accountNumber;
-  String description;
-  String imageBg;
+import 'package:image_picker/image_picker.dart';
 
-  Account({
-    required this.total,
-    required this.divisa,
-    required this.accountNumber,
-    required this.description,
-    required this.imageBg,
+class Account {
+  const Account({
+    this.total,
+    this.divisa,
+    this.accountNumber,
+    this.description,
+    this.imageBg,
   });
+
+  final double? total;
+  final String? divisa;
+  final int? accountNumber;
+  final String? description;
+  final XFile? imageBg;
+
+  Account copyWith({
+    double? total,
+    String? divisa,
+    int? accountNumber,
+    String? description,
+    XFile? imageBg,
+  }) {
+    return Account(
+      total: total ?? this.total,
+      divisa: divisa ?? this.divisa,
+      accountNumber: accountNumber ?? this.accountNumber,
+      description: description ?? this.description,
+      imageBg: imageBg ?? this.imageBg,
+    );
+  }
 
   factory Account.fromJson(Map<String, dynamic> json) => Account(
         total: json["total"]?.toDouble(),
@@ -26,6 +44,6 @@ class Account {
         "divisa": divisa,
         "accountNumber": accountNumber,
         "description": description,
-        "imageBg": imageBg,
+        "imageBg": imageBg?.name,
       };
 }

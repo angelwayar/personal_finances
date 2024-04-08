@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personal_finances/core/theme/color_schemes.dart';
-import 'package:personal_finances/pages/register/card/card_cubit.dart';
+
+import '../../../core/theme/color_schemes.dart';
+import '../card/card_cubit.dart';
+import '../currency.page.dart';
 
 class AccountForm extends StatefulWidget {
   const AccountForm({
@@ -10,11 +12,15 @@ class AccountForm extends StatefulWidget {
     required this.formKey,
     required this.accountController,
     required this.totalBalanceController,
+    required this.currencyController,
+    required this.descriptionController,
   });
 
   final GlobalKey<FormState> formKey;
   final TextEditingController accountController;
   final TextEditingController totalBalanceController;
+  final TextEditingController currencyController;
+  final TextEditingController descriptionController;
 
   @override
   State<AccountForm> createState() => _AccountFormState();
@@ -77,8 +83,17 @@ class _AccountFormState extends State<AccountForm> {
           const SizedBox(height: 12.0),
           InkWell(
             onTap: () {
-              // TODO: Esto debe de redireccionar a un listado de divisas
-              // Navigator.push(context, MaterialPageRoute(builder: (_) =>));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => CurrencyPage(
+                    callback: (value) {
+                      widget.currencyController.text =
+                          '${value.symbol} - ${value.code}';
+                    },
+                  ),
+                ),
+              );
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -94,7 +109,7 @@ class _AccountFormState extends State<AccountForm> {
           ),
           const SizedBox(height: 8.0),
           TextFormField(
-            controller: TextEditingController(text: '\$ - Dolar'),
+            controller: widget.currencyController,
             enabled: false,
             decoration: InputDecoration(
               labelText: 'Divisa',
@@ -106,6 +121,7 @@ class _AccountFormState extends State<AccountForm> {
           ),
           const SizedBox(height: 12.0),
           TextFormField(
+            controller: widget.descriptionController,
             decoration: const InputDecoration(
               labelText: 'Descripción',
             ),

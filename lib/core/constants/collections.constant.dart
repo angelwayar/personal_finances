@@ -1,1 +1,1 @@
-const kAccount = 'account';
+const kAccount = 'accounts';
