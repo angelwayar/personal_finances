@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:personal_finances/pages/statistic/statistics.page.dart';
 
+import '../../pages/auth/login.page.dart';
 import '../../pages/financialRegister/financial.page.dart';
 import '../../pages/home/home.page.dart';
 import '../../pages/register/register_account.page.dart';
@@ -13,6 +14,10 @@ class AppRoutes {
   static final _shellNavigatorBKey = GlobalKey<NavigatorState>();
 
   static final routes = [
+    GoRoute(
+      path: NamePage.login.path,
+      builder: (context, state) => const LoginPage(),
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         RegExp regex = RegExp(r'/.*?/');
@@ -27,19 +32,19 @@ class AppRoutes {
           navigatorKey: _shellNavigatorAKey,
           routes: [
             GoRoute(
-              path: NamePage.home.path(),
+              path: NamePage.home.path,
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: MyHomePage(),
               ),
               routes: [
                 GoRoute(
-                  path: NamePage.accountRegister.path(),
+                  path: NamePage.accountRegister.path,
                   builder: (context, state) {
                     return const RegisterAccountPage();
                   },
                 ),
                 GoRoute(
-                  path: NamePage.journal.path(),
+                  path: NamePage.journal.path,
                   builder: (context, state) {
                     return const FinancialPage();
                   },

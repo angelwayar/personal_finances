@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     backgroundColor: Colors.green[100]!,
                     onTap: () {
                       context.push(
-                        '${NamePage.home.path()}/${NamePage.accountRegister.path()}',
+                        '${NamePage.home.path}/${NamePage.accountRegister.path}',
                       );
                     },
                     child: const Icon(
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     backgroundColor: Colors.green[100]!,
                     onTap: () {
                       context.push(
-                        '${NamePage.home.path()}/${NamePage.journal.path()}',
+                        '${NamePage.home.path}/${NamePage.journal.path}',
                       );
                     },
                     child: Icon(
