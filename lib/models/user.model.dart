@@ -1,13 +1,13 @@
 class User {
-  String email;
-
-  User({
-    required this.email,
+  const User({
+    required this.id,
+    this.email,
+    this.name,
+    this.photo,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        email: json["email"],
-      );
-
-  Map<String, dynamic> toJson() => {"email": email};
+  final String? email;
+  final String id;
+  final String? name;
+  final String? photo;
 }

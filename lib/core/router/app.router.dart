@@ -11,7 +11,7 @@ class AppRouter {
 
   static final _routers = GoRouter(
     navigatorKey: _routtNavigator,
-    initialLocation: NamePage.home.path(),
+    initialLocation: NamePage.login.path,
     onException: (context, state, router) {
       // TODO: se debe de lanzar un popup en caso de error
     },
