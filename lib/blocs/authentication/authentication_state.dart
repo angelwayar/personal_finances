@@ -16,7 +16,8 @@ final class AuthenticationInProgress extends AuthenticationState {
 }
 
 final class AuthenticationSuccess extends AuthenticationState {
-  const AuthenticationSuccess();
+  final String email;
+  const AuthenticationSuccess({required this.email});
 }
 
 final class AuthenticationFailure extends AuthenticationState {

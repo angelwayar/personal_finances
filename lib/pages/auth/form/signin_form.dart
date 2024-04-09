@@ -24,6 +24,7 @@ class SignForm extends StatelessWidget {
         children: [
           TextFormField(
             controller: emailController,
+            keyboardType: TextInputType.emailAddress,
             validator: (value) {
               if ((value == null) || (value.isEmpty)) {
                 return 'Campo requerido.';

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:personal_finances/pages/statistic/statistics.page.dart';
 
 import '../../pages/auth/login.page.dart';
+import '../../pages/auth/signup.page.dart';
 import '../../pages/financialRegister/financial.page.dart';
 import '../../pages/home/home.page.dart';
 import '../../pages/register/register_account.page.dart';
+import '../../pages/statistic/statistics.page.dart';
 import 'enum/name_page.enum.dart';
 import 'scaffold_with_nested_navigation.dart';
 
@@ -17,6 +18,10 @@ class AppRoutes {
     GoRoute(
       path: NamePage.login.path,
       builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: NamePage.signup.path,
+      builder: (context, state) => const SignUpPage(),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
@@ -33,9 +38,13 @@ class AppRoutes {
           routes: [
             GoRoute(
               path: NamePage.home.path,
-              pageBuilder: (context, state) => const NoTransitionPage(
-                child: MyHomePage(),
-              ),
+              pageBuilder: (context, state) {
+                return NoTransitionPage(
+                  child: MyHomePage(
+                    email: (state.extra as String),
+                  ),
+                );
+              },
               routes: [
                 GoRoute(
                   path: NamePage.accountRegister.path,

@@ -1,6 +1,7 @@
 enum NamePage {
   splash('/splash'),
   login('/login'),
+  signup('/signup'),
   home('/home'),
   journal('journal'),
   accountRegister('account-register'),

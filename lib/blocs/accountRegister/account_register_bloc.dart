@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 import '../../core/constants/collections.constant.dart';
@@ -45,6 +46,14 @@ class AccountRegisterBloc
       }
 
       emit(const AccountRegisterSuccess());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        // print('The password provided is too weak.');
+        emit(AccountRegisterFailure(message: 'Ocurrio un error: $e'));
+      } else if (e.code == 'email-already-in-use') {
+        // print('The account already exists for that email.');
+        emit(AccountRegisterFailure(message: 'Ocurrio un error: $e'));
+      }
     } catch (e) {
       log('Ocurrio un error: $e');
       emit(AccountRegisterFailure(message: 'Ocurrio un error: $e'));

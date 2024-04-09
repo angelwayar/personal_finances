@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:personal_finances/core/router/enum/name_page.enum.dart';
 
+import '../../core/router/enum/name_page.enum.dart';
 import '../../core/theme/color_schemes.dart';
 import '../../widgets/widgets.dart';
 import 'account_section.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({super.key, required this.email});
+
+  final String email;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

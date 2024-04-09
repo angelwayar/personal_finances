@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:personal_finances/core/router/enum/name_page.enum.dart';
 
 import '../../blocs/blocs.dart';
+import '../../core/router/enum/name_page.enum.dart';
 import '../../injection.dart';
 import 'form/signin_form.dart';
-import 'signup.page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -23,7 +22,7 @@ class LoginPage extends StatelessWidget {
       child: BlocListener<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state is AuthenticationSuccess) {
-            context.push(NamePage.home.path);
+            context.push(NamePage.home.path, extra: state.email);
           }
         },
         child: Scaffold(
@@ -39,28 +38,30 @@ class LoginPage extends StatelessWidget {
                       height: 140.0,
                       width: 80.0,
                       color: Colors.red,
-                      child: const Text('Agregar logo'),
+                      child: const Center(
+                        child: Text(
+                          'Agregar logo',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24.0,
+                          ),
+                        ),
+                      ),
                     ),
                     SignForm(
                       formKey: formKey,
                       emailController: emailController,
                       passwordController: passwordController,
                     ),
+                    TextButton(
+                      onPressed: () {
+                        context.push(NamePage.signup.path);
+                      },
+                      child: const Text('Crear cuenta'),
+                    ),
                   ],
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => const SignUpPage(),
-                    ),
-                  );
-                },
-                child: const Text('Crear cuenta'),
-              ),
-              const Spacer(),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24.0,

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,13 +18,24 @@ class AuthenticationBloc
     try {
       emit(const AuthenticationInProgress());
 
-      await _auth.signInWithEmailAndPassword(
+      final credential = await _auth.signInWithEmailAndPassword(
         email: event.email.trim(),
         password: event.password.trim(),
       );
 
-      emit(const AuthenticationSuccess());
+      emit(AuthenticationSuccess(email: credential.user!.email!));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        // print('No user found for that email.');
+        log('Ocurrio un error: $e');
+        emit(AuthenticationFailure(message: 'Ocurrio un error: $e'));
+      } else if (e.code == 'wrong-password') {
+        log('Ocurrio un error: $e');
+        // print('Wrong password provided for that user.');
+        emit(AuthenticationFailure(message: 'Ocurrio un error: $e'));
+      }
     } catch (e) {
+      log('Ocurrio un error: $e');
       emit(AuthenticationFailure(message: 'Ocurrio un error: $e'));
     }
   }
