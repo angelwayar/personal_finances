@@ -38,13 +38,9 @@ class AppRoutes {
           routes: [
             GoRoute(
               path: NamePage.home.path,
-              pageBuilder: (context, state) {
-                return NoTransitionPage(
-                  child: MyHomePage(
-                    email: (state.extra as String),
-                  ),
-                );
-              },
+              pageBuilder: (context, state) => const NoTransitionPage(
+                child: MyHomePage(),
+              ),
               routes: [
                 GoRoute(
                   path: NamePage.accountRegister.path,

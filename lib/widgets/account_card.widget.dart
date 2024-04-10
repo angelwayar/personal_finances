@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../core/utils/utils.dart';
+
 class AccountCardWidget extends StatefulWidget {
   const AccountCardWidget({
     super.key,
@@ -41,10 +43,19 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
 
   DecorationImage? imageSelected() {
     if (widget.img != null) {
-      return DecorationImage(
-        image: AssetImage(widget.img!),
-        fit: BoxFit.cover,
-      );
+      if (imgValidator(widget.img!) != null) {
+        final pathImg = 'assets/background/${widget.img}';
+
+        return DecorationImage(
+          image: AssetImage(pathImg),
+          fit: BoxFit.cover,
+        );
+      } else {
+        return DecorationImage(
+          image: Image.network(widget.img!).image,
+          fit: BoxFit.cover,
+        );
+      }
     } else if (image != null) {
       return DecorationImage(
         image: Image.file(

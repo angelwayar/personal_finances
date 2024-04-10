@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../blocs/blocs.dart';
 import '../../core/theme/color_schemes.dart';
-import '../../injection.dart';
 import '../../models/models.dart';
 import '../../widgets/widgets.dart';
 import 'card/card_cubit.dart';
@@ -22,15 +21,9 @@ class RegisterAccountPage extends StatelessWidget {
     final currencyController = TextEditingController();
     final descriptionController = TextEditingController();
     final formKey = GlobalKey<FormState>();
-    final accountRegisterBloc = Injector.getIt.get<AccountRegisterBloc>();
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AccountRegisterBloc>(
-          create: (context) => accountRegisterBloc,
-        ),
-        BlocProvider<CardCubit>(create: (context) => CardCubit()),
-      ],
+    return BlocProvider<CardCubit>(
+      create: (context) => CardCubit(),
       child: BlocListener<AccountRegisterBloc, AccountRegisterState>(
         listener: (context, state) {
           if (state is AccountRegisterSuccess) {
@@ -76,6 +69,7 @@ class RegisterAccountPage extends StatelessWidget {
                                     callback: (value) {
                                       account = account.copyWith(
                                         imageBg: value,
+                                        image: null,
                                       );
                                     },
                                     account: state.account,
@@ -85,7 +79,7 @@ class RegisterAccountPage extends StatelessWidget {
                                 return AccountCardWidget(
                                   account: state.account,
                                   totalBalance: state.totalBalance,
-                                  img: 'assets/background/card$index.jpg',
+                                  img: 'card$index.jpg',
                                 );
                               },
                               onSwipe: (
@@ -93,6 +87,12 @@ class RegisterAccountPage extends StatelessWidget {
                                 int? currentIndex,
                                 CardSwiperDirection direction,
                               ) {
+                                if (currentIndex != 0) {
+                                  account = account.copyWith(
+                                    imageBg: null,
+                                    image: 'card$currentIndex.jpg',
+                                  );
+                                }
                                 return true;
                               },
                               isLoop: true,
@@ -129,7 +129,6 @@ class RegisterAccountPage extends StatelessWidget {
                     bottom: 24.0,
                   ),
                   child: BlocBuilder<AccountRegisterBloc, AccountRegisterState>(
-                    bloc: accountRegisterBloc,
                     builder: (context, state) {
                       return ElevatedButton(
                         onPressed: state is AccountRegisterInProgress
@@ -137,17 +136,19 @@ class RegisterAccountPage extends StatelessWidget {
                             : () {
                                 if (formKey.currentState!.validate()) {
                                   account = account.copyWith(
-                                    total: double.parse(accountController.text),
+                                    total: double.parse(
+                                      totalBalanceController.text,
+                                    ),
                                     divisa: currencyController.text,
                                     accountNumber:
                                         int.parse(accountController.text),
                                     description: descriptionController.text,
                                   );
-                                  accountRegisterBloc.add(
-                                    AccountRegisterSaved(
-                                      account: account,
-                                    ),
-                                  );
+                                  context.read<AccountRegisterBloc>().add(
+                                        AccountRegisterSaved(
+                                          account: account,
+                                        ),
+                                      );
                                 }
                               },
                         child: state is AccountRegisterInProgress

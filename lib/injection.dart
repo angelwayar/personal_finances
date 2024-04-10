@@ -23,7 +23,10 @@ class Injector {
       () => AuthenticationBloc(auth),
     );
     getIt.registerFactory(
-      () => SignUpBloc(auth),
+      () => SignUpBloc(auth, db),
+    );
+    getIt.registerFactory(
+      () => AccountBloc(db, storage),
     );
   }
 }

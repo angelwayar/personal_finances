@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/constants/collections.constant.dart';
 import '../../models/models.dart';
@@ -27,22 +28,27 @@ class AccountRegisterBloc
 
   _onRegisterAccountSaved(AccountRegisterSaved event, Emitter emit) async {
     try {
-      final storageRef = _storage.ref();
       emit(const AccountRegisterInProgress());
 
-      if (event.account.imageBg != null) {
-        final filePath = event.account.imageBg!.path;
+      final storageRef = _storage.ref();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final String? email = prefs.getString('email');
+
+      final account = event.account.copyWith(email: email);
+
+      if (account.imageBg != null) {
+        final filePath = account.imageBg!.path;
         final file = File(filePath);
 
         final imgBg = storageRef.child(
-          'finances/cad-bg/${event.account.imageBg!.name}',
+          'finances/cad-bg/${account.imageBg!.name}',
         );
 
         await imgBg.putFile(file).then((value) async {
-          await _db.collection(kAccount).add(event.account.toJson());
+          await _db.collection(kAccount).add(account.toJson());
         });
       } else {
-        await _db.collection(kAccount).add(event.account.toJson());
+        await _db.collection(kAccount).add(account.toJson());
       }
 
       emit(const AccountRegisterSuccess());
